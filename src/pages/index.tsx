@@ -49,11 +49,13 @@ export default function HomePage() {
       if (!res.ok) throw new Error('Failed to fetch notes.');
       const data = await res.json();
       setNotes(data);
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setIsLoading(false);
-    }
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Login failed due to an unknown error.");
+      }
+}
   };
 
   const handleLogin = async (e: FormEvent) => {
@@ -71,11 +73,13 @@ export default function HomePage() {
       
       Cookie.set('token', data.token, { expires: 1 }); // Expires in 1 day
       setToken(data.token);
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setIsLoading(false);
-    }
+    } catch (err) {
+  if (err instanceof Error) {
+    setError(err.message);
+  } else {
+    setError("Failed to fetch notes due to an unknown error.");
+  }
+}
   };
   
   const handleCreateNote = async (e: FormEvent) => {
@@ -95,9 +99,13 @@ export default function HomePage() {
         
         setNewNoteTitle('');
         fetchNotes(); // Refresh list
-    } catch (err: any) {
-        setError(err.message);
-    }
+    } catch (err) {
+  if (err instanceof Error) {
+    setError(err.message);
+  } else {
+    setError("Failed to create note due to an unknown error.");
+  }
+}
   };
   
   const handleLogout = () => {
