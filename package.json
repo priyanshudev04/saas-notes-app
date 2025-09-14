@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.16.1",
+    "@types/js-cookie": "^3.0.6",
     "bcrypt": "^6.0.0",
+    "jose": "^6.1.0",
+    "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "next": "15.5.3",
     "prisma": "^6.16.1",
@@ -28,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   },
   "prisma": {
