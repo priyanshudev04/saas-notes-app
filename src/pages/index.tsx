@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import Cookie from 'js-cookie';
 import { useRouter } from 'next/router';
+import Link from 'next/dist/client/link';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -69,9 +70,9 @@ export default function LoginPage() {
         </button>
         <p className="mt-4 text-center text-gray-600">
             Don&apos;t have an account?{' '}
-          <a href="/signup" className="text-blue-500 hover:underline">
-            Sign up here
-          </a>
+          <Link href="/signup" className="text-blue-500 hover:underline">
+  Sign up here
+</Link>
         </p>
       </form>
     </div>
